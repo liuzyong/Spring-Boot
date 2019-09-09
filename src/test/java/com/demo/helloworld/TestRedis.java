@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=SpringRunner.class)
+@SpringBootTest
 public class TestRedis {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
