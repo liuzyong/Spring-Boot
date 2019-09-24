@@ -12,3 +12,6 @@ spring:
 logging:
   level:
     com.demo: debug
+
+server:
+  port: 8000
