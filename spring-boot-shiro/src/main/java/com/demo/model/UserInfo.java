@@ -3,7 +3,6 @@ package com.demo.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -14,11 +13,11 @@ import java.util.List;
  **/
 @Entity
 @Data
-public class UserInfo implements Serializable {
+public class UserInfo {
     @Id
     @GeneratedValue
-    private Integer uid;
-    @Column(unique =true)
+    private long uid;
+    @Column(nullable = false, unique = true)
     private String username;//帐号
     private String name;//名称（昵称或者真实姓名，不同系统不同定义）
     private String password; //密码;
@@ -28,5 +27,14 @@ public class UserInfo implements Serializable {
     @JoinTable(name = "SysUserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
     private List<SysRole> roleList;// 一个用户具有多个角色
 
+    /**
+     * 密码盐.
+     *
+     * @return
+     */
+    public String getCredentialsSalt() {
+        return this.username + this.salt;
+    }
+    //重新对盐重新进行了定义，用户名+salt，这样就更加不容易被破解
 
 }

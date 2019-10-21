@@ -9,10 +9,10 @@ import java.util.List;
  * @program: spring-boot-shiro
  * @description:
  * @author: lau
- * @create: 2019-09-24 21:37
+ * @create: 2019-09-26 16:54
  **/
-@Data
 @Entity
+@Data
 public class SysPermission {
     @Id
     @GeneratedValue

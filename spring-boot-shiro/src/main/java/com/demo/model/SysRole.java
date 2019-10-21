@@ -9,10 +9,10 @@ import java.util.List;
  * @program: spring-boot-shiro
  * @description:
  * @author: lau
- * @create: 2019-09-24 21:35
+ * @create: 2019-09-26 16:52
  **/
-@Data
 @Entity
+@Data
 public class SysRole {
     @Id
     @GeneratedValue
@@ -30,4 +30,5 @@ public class SysRole {
     @ManyToMany
     @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
     private List<UserInfo> userInfos;// 一个角色对应多个用户
+
 }
